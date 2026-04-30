@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Space+Grotesk:wght@700&family=Outfit:wght@600;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans KR", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Noto Sans KR", sans-serif;
+  --font-accent: "Outfit", sans-serif;
+
+  --color-brand-navy: #1a2b5d;
+  --color-brand-bg: #f9f7f2;
+  --color-brand-muted: #e5e1d8;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-navy font-sans antialiased selection:bg-brand-navy selection:text-white;
+  }
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
