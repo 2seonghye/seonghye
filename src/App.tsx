@@ -204,13 +204,24 @@ const Projects = () => (
           { name: "LG SIGNATURE", role: "연간 소셜 마케팅 운영 및 PM", year: "2021", img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=800" },
           { name: "CHEVROLET", role: "소셜 마케팅 리뉴얼 및 운영 PM", year: "2019-2021", img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=800" },
           { name: "OLIVE YOUNG", role: "온/오프 통합 프로모션 팀원", year: "2021", img: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&q=80&w=800" },
-          { name: "YOGIYO", role: "연말 대형 프로모션 기획 및 운영", year: "2019", img: "https://images.unsplash.com/photo-1526367790999-0150786486a9?auto=format&fit=crop&q=80&w=800" },
-          { name: "oksusu (wave)", role: "디지털 소셜 마케팅 PM", year: "2017-2018", img: "https://images.unsplash.com/photo-1522869635100-34906f36976a?auto=format&fit=crop&q=80&w=800" },
+          { name: "YOGIYO", role: "연말 대형 프로모션 기획 및 운영", year: "2019", img: "https://raw.githubusercontent.com/2seonghye/seonghye/7663010ebcf1ed4aff484d76597b36a83e4ab3bc/1.jpg" },
+          { name: "oksusu (wave)", role: "디지털 소셜 마케팅 PM", year: "2017-2018", video: "https://raw.githubusercontent.com/2seonghye/seonghye/60d6267c5436456c9a48056d81b03dc1637902f2/%EC%9D%B4%EC%84%B1%ED%98%9C.mp4" },
           { name: "SK Broadband", role: "디지털 통합 마케팅 운영", year: "2017-2018", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" }
         ].map((item) => (
           <div key={item.name} className="group cursor-pointer">
             <div className="aspect-[4/5] overflow-hidden mb-6 bg-brand-muted">
-              <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" />
+              {item.video ? (
+                <video 
+                  src={item.video} 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+                />
+              ) : (
+                <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" />
+              )}
             </div>
             <div className="flex justify-between items-start px-2">
               <div>
