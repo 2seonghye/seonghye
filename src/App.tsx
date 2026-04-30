@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, User } from "lucide-react";
+import { ChatBot } from "./components/ChatBot";
 
 // --- Components ---
 
@@ -322,6 +323,44 @@ const Contact = () => (
   </section>
 );
 
+const Testimonials = () => (
+  <section className="px-6 py-32 bg-white text-brand-navy">
+    <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-8">
+      <div>
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-2 h-2 bg-brand-navy rounded-full" />
+          <span className="text-xs font-bold uppercase tracking-widest">Testimonials</span>
+        </div>
+        <h3 className="text-5xl md:text-7xl font-display leading-[0.9] tracking-tighter">
+          Don't just take our word<br />for it. Hear what partners<br />have to say about us
+        </h3>
+      </div>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      {[
+        { text: "연간 운영 PM으로서 탁월한 전략과 전문적인 실행력을 보여주셨습니다. 브랜드 가치가 크게 향상되었습니다.", author: "LG 시그니처 마케팅 담당자", role: "Manager" },
+        { text: "소셜 미디어 채널의 비주얼과 퍼포먼스 모두를 만족시키는 드문 기획자입니다.", author: "쉐보레 코리아 브랜딩 팀", role: "Client" },
+        { text: "복잡한 온/오프라인 프로모션 과정에서도 흔들림 없는 실무 PM 역량이 인상적이었습니다.", author: "올리브영 마케팅 기획팀", role: "Partner" },
+        { text: "데이터 기반의 광고 운영과 크리에이티브한 기획력이 완벽하게 조화를 이룹니다.", author: "요기요 캠페인 실무자", role: "Senior Manager" }
+      ].map((item, idx) => (
+        <div key={idx} className="p-12 border border-brand-navy/5 bg-gray-50 flex flex-col justify-between">
+          <p className="text-xl font-medium tracking-tight mb-12 italic opacity-80 leading-relaxed">"{item.text}"</p>
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 bg-brand-muted rounded-full overflow-hidden flex items-center justify-center">
+              <User size={20} className="text-brand-navy opacity-30" />
+            </div>
+            <div>
+              <p className="text-sm font-bold uppercase tracking-tight">{item.author}</p>
+              <p className="text-[10px] opacity-50 uppercase font-bold tracking-widest">{item.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+);
+
 export default function App() {
   return (
     <div className="min-h-screen">
@@ -331,8 +370,10 @@ export default function App() {
       <Clients />
       <Experience />
       <Projects />
+      <Testimonials />
       <AwardsEducation />
       <Contact />
+      <ChatBot />
     </div>
   );
 }
